@@ -97,7 +97,14 @@ class Board extends Component {
 
   render() {
     if(this.state.hasWon) {
-      return <h1>YOU WON!!!</h1>
+      return (
+        <div className="Board-title">
+          <div className="winner">
+          <span className="neon-blue">YOU</span>
+          <span className="neon-orange">WIN!</span>
+          </div>
+        </div>
+      )
     }
 
     let tblBoard = []
@@ -110,11 +117,15 @@ class Board extends Component {
       tblBoard.push(<tr key={y} >{row}</tr>);
     }
     return(
-      <table className="Board">
-        <tbody>
-          {tblBoard}
-        </tbody>
-      </table>
+      <div>
+        <div className="Board-title">
+          <div className="neon-orange">LIGHTS</div>
+          <div className="neon-blue">OUT</div>
+        </div>
+        <table className="Board">
+          <tbody>{tblBoard}</tbody>
+        </table>
+      </div>
     )
     // if the game is won, just show a winning msg & render nothing else
 
